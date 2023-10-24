@@ -1,6 +1,6 @@
-#!/usr/bin/env racket
-
 #lang racket
+
+(provide (all-defined-out))
 
 (define (repeat n x)
   (map (const x) (range n)))

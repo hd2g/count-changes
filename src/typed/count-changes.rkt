@@ -54,14 +54,3 @@
        (group-by (cast identity (-> Natural Natural))
                  calced)))))
 
-; (module+ main
-;   (require racket/cmdline)
-
-;   (command-line
-;    #:program "change money calculater"
-;    #:args (x)
-;    ;; entry point
-;    (let ((y (string->number x)))
-;      (when y
-;        (solve y)))))
-
