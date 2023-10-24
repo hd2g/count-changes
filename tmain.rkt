@@ -37,20 +37,22 @@
               (append acc rs)
               (go m (cdr divisors) (append acc rs))))))))
 
-(: frequencies (-> (Listof (Listof Any)) (Listof (Pairof Any Natural))))
+(: frequencies (All (a) (-> (Listof (Listof a)) (Listof (Pairof a Natural)))))
 (define (frequencies xss)
   (map
-   (lambda (xs)
+   (lambda ((xs : (Listof a))) : (Pairof a Natural)
      (cons (car xs)
            (cast (length xs) Natural)))
    xss))
 
-; (: solve (->* (Number) ((Listof Natural))
-;               (U (Listof (Pair Natural Natural)) Void)))
-; (define (solve x (divisors *divisors*))
-;   (let ((calced (calc x divisors)))
-;     (unless (void? calced)
-;       (frequencies (group-by identity calced)))))
+(: solve (->* (Number) ((Listof Natural))
+              (U (Listof (Pair Natural Natural)) Void)))
+(define (solve x (divisors *divisors*))
+  (let ((calced (calc x divisors)))
+    (unless (void? calced)
+      (frequencies
+       (group-by (cast identity (-> Natural Natural))
+                 calced)))))
 
 ; (module+ main
 ;   (require racket/cmdline)
@@ -62,3 +64,4 @@
 ;    (let ((y (string->number x)))
 ;      (when y
 ;        (solve y)))))
+
