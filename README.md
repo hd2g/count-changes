@@ -8,6 +8,7 @@ Racket,Typed Racketの練習
 - [x] Typed Racketで型を付けてみる
 - [ ] main.rktでコマンドラインツール化する
   - [x] 引数(おつり金額)を1つ取り、おつりを計算する機能をとりあえず実装する
+- [ ] お釣りが用意できない場合のデータ型をEither的なものにしたほうがいい?
 
 ## Examples
 ```terminal
